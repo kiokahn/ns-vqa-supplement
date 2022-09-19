@@ -3,8 +3,8 @@
 
 ### Author  
 
-최초 작성 : 임소현 연구원 / AI 응용 기술 연구팀  / GazziLabs Inc. 
-수장        : Kiok Ahn / GazziLabs Inc. 
+최초 작성 : 임소현 연구원 / AI 응용 기술 연구팀  / GazziLabs Inc.     
+수정        : Kiok Ahn / GazziLabs Inc. 
 
 
 ## 실행 환경
