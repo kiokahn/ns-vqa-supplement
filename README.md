@@ -1,5 +1,6 @@
 # [NS-VQA 실행 방법]
 
+원본 : https://github.com/kexinyi/ns-vqa
 
 ### Author  
 
@@ -65,6 +66,11 @@ CLEVR_v1.0 : https://dl.fbaipublicfiles.com/clevr/CLEVR_v1.0.zip
 CLEVR_mini :　http://nsvqa.csail.mit.edu/assets/CLEVR_mini.zip    
 pretrained : http://nsvqa.csail.mit.edu/assets/pretrained.zip    
 backbones : http://nsvqa.csail.mit.edu/assets/backbones.zip    
+
+- download.sh 파일에 모두 적용함   
+```
+sh download.sh
+```
 
 ## Original
 ======= 이하 https://github.com/kexinyi/ns-vqa의 README.md 설명과 동일 =======   
