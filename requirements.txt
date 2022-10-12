@@ -1,6 +1,6 @@
 pytorch=0.4.0
 torchvision
-cython
+cython=0.28.5
 matplotlib
 numpy
 scipy
