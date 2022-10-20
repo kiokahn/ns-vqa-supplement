@@ -4,7 +4,7 @@ import json
 import argparse
 import pickle
 import pycocotools.mask as mask_util
-import utils
+import utils_attr #utils
 
 
 parser = argparse.ArgumentParser()
@@ -27,7 +27,7 @@ def main(args):
     scenes = None
     if args.gt_scene_path is not None:
         if args.dataset == 'clevr':
-            scenes = utils.load_clevr_scenes(args.gt_scene_path)
+            scenes = utils_attr.load_clevr_scenes(args.gt_scene_path) #utils.load_clevr_scenes(args.gt_scene_path)
         else:
             with open(args.gt_scene_path) as f:
                 scenes = json.load(f)['scenes']
@@ -59,11 +59,14 @@ def main(args):
                         mask = mask_util.decode(m)
                         for o in scenes[i]['objects']:
                             mask_gt = mask_util.decode(o['mask'])
-                            if utils.iou(mask, mask_gt) > args.align_iou_thresh:
+                            #if utils.iou(mask, mask_gt) > args.align_iou_thresh:
+                            if utils_attr.iou(mask, mask_gt) > args.align_iou_thresh:
                                 if args.dataset == 'clevr':
-                                    vec = utils.get_feat_vec_clevr(o)
+                                    #vec = utils.get_feat_vec_clevr(o)
+                                    vec = utils_attr.get_feat_vec_clevr(o)
                                 else:
-                                    vec = utils.get_feat_vec_mc(o)
+                                    #vec = utils.get_feat_vec_mc(o)
+                                    vec = utils_attr.get_feat_vec_mc(o)
                                 obj_ann = {
                                     'mask': m,
                                     'image_idx': i,
@@ -88,8 +91,10 @@ def main(args):
                     for obj_exist in objs_suppressed:
                         mo = mask_util.decode(obj_ann['mask'])
                         me = mask_util.decode(obj_exist['mask'])
-                        if utils.iou(mo, me) > args.suppression_iou_thresh \
-                           or utils.iomin(mo, me) > args.suppression_iomin_thresh:
+                        #if utils.iou(mo, me) > args.suppression_iou_thresh \
+                        #   or utils.iomin(mo, me) > args.suppression_iomin_thresh:
+                        if utils_attr.iou(mo, me) > args.suppression_iou_thresh \
+                           or utils_attr.iomin(mo, me) > args.suppression_iomin_thresh:
                             duplicate = True
                             break
                     if not duplicate:

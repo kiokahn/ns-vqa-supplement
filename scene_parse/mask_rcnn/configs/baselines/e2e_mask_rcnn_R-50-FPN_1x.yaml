@@ -5,7 +5,7 @@ MODEL:
   MASK_ON: True
 RESNETS:
   IMAGENET_PRETRAINED_WEIGHTS: 'pretrained_model/resnet50_caffe.pth'
-NUM_GPUS: 8
+NUM_GPUS: 1 #8
 SOLVER:
   WEIGHT_DECAY: 0.0001
   LR_POLICY: steps_with_decay
@@ -24,9 +24,9 @@ FAST_RCNN:
   ROI_XFORM_SAMPLING_RATIO: 2
 MRCNN:
   ROI_MASK_HEAD: mask_rcnn_heads.mask_rcnn_fcn_head_v1up4convs
-  RESOLUTION: 28  # (output mask resolution) default 14
+  RESOLUTION: 14 #28  # (output mask resolution) default 14
   ROI_XFORM_METHOD: RoIAlign
-  ROI_XFORM_RESOLUTION: 14  # default 7
+  ROI_XFORM_RESOLUTION: 7 #14  # default 7
   ROI_XFORM_SAMPLING_RATIO: 2  # default 0
   DILATION: 1  # default 2
   CONV_INIT: MSRAFill  # default GaussianFill
